@@ -1,7 +1,8 @@
 name: publish
 on:
   push:
-    tags: *
+    tags:
+      - *
 jobs:
   publish:
     runs-on: linux-latest
