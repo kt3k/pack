@@ -1,6 +1,6 @@
-version: 0.1.6
+version: 0.1.7
 commit: 'chore: bump to v%.%.%'
 files:
   README.md: v%.%.%
   main.ts: '@kt3k/pack@%.%.%'
-  jsr.json: '"%.%.%"'
+  deno.json: '"%.%.%"'
