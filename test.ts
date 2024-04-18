@@ -15,6 +15,8 @@ Deno.test("cmd -v", async () => {
 });
 
 Deno.test("cmd example.ts -o example-out.js", async (t) => {
+  // Cache dependencies of hello.ts
+  await deno("cache", "example.ts");
   const { stderr } = await cmd("example.ts", "-o", "example-out.js");
   const strippedStderr = stripAnsiCode(stderr);
   assertEquals(
@@ -40,18 +42,15 @@ output: STDOUT
   await assertSnapshot(t, await stdout);
 });
 
-async function cmd(...args: string[]) {
-  const cmd = new Deno.Command("deno", {
-    args: [
-      "run",
-      "-A",
-      "main.ts",
-      ...args,
-    ],
-  });
+async function deno(...args: string[]) {
+  const cmd = new Deno.Command("deno", { args });
   const output = await cmd.output();
   return {
     stdout: td.decode(output.stdout),
     stderr: td.decode(output.stderr),
   };
+}
+
+function cmd(...args: string[]) {
+  return deno("run", "-A", "main.ts", ...args);
 }

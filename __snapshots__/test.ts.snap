@@ -1,7 +1,7 @@
 export const snapshot = {};
 
 snapshot[`cmd example.ts -o example-out.js 1`] = `
-'// https://jsr.io/@std/encoding/0.218.2/_util.ts
+'// https://jsr.io/@std/encoding/0.223.0/_util.ts
 var encoder = new TextEncoder();
 function getTypeName(value) {
   const type = typeof value;
@@ -26,7 +26,7 @@ function validateBinaryLike(source) {
   );
 }
 
-// https://jsr.io/@std/encoding/0.218.2/hex.ts
+// https://jsr.io/@std/encoding/0.223.0/hex.ts
 var hexTable = new TextEncoder().encode("0123456789abcdef");
 var textEncoder = new TextEncoder();
 var textDecoder = new TextDecoder();
@@ -47,7 +47,7 @@ console.log(encodeHex(Uint8Array.from([0, 1, 2, 3])));
 `;
 
 snapshot[`cmd example.ts 1`] = `
-'// https://jsr.io/@std/encoding/0.218.2/_util.ts
+'// https://jsr.io/@std/encoding/0.223.0/_util.ts
 var encoder = new TextEncoder();
 function getTypeName(value) {
   const type = typeof value;
@@ -72,7 +72,7 @@ function validateBinaryLike(source) {
   );
 }
 
-// https://jsr.io/@std/encoding/0.218.2/hex.ts
+// https://jsr.io/@std/encoding/0.223.0/hex.ts
 var hexTable = new TextEncoder().encode("0123456789abcdef");
 var textEncoder = new TextEncoder();
 var textDecoder = new TextDecoder();
