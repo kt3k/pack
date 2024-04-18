@@ -1,6 +1,6 @@
 {
   "name": "@kt3k/pack",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "exports": {
     ".": "./main.ts"
   },
