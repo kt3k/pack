@@ -12,7 +12,8 @@ deno run -A jsr:@kt3k/pack [-h|-v] [-o <filename>] <input-file>
 
 - `-h` Show help message and exit.
 - `-v` Show version number and exit.
-- `-o <filename>` Specify the output file name. If not specified, the bundle is output to stdout.
+- `-o <filename>` Specify the output file name. If not specified, the bundle is
+  output to stdout.
 
 ## License
 
