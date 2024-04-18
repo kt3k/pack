@@ -1,5 +1,7 @@
 # @kt3k/pack v0.1.4
 
+[![ci](https://github.com/kt3k/pack/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/pack/actions/workflows/ci.yml)
+
 > Bundle Deno scripts into a single script
 
 ## Usage
