@@ -1,0 +1,9 @@
+name: publish
+on: tag
+jobs:
+  publish:
+    runs-on: linux-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+      - run: deno publish
