@@ -22,6 +22,8 @@ async function main() {
   if (options._.length === 0) {
     console.error("No input file specified.");
     console.log();
+    console.log(usage());
+    console.log();
     Deno.exit(1);
   }
 
