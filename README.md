@@ -1,4 +1,4 @@
-# @kt3k/pack v0.1.2
+# @kt3k/pack v0.1.3
 
 > Bundle Deno scripts into a single script
 
