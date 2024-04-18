@@ -1,4 +1,9 @@
 {
+  "name": "@kt3k/pack",
+  "version": "0.1.6",
+  "exports": {
+    ".": "./main.ts"
+  },
   "tasks": {
     "example": "deno run -A main.ts example.ts -o example-out.js",
     "test": "deno test -A"
