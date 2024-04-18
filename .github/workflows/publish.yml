@@ -4,7 +4,7 @@ on:
     tags: '*'
 jobs:
   publish:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v1
