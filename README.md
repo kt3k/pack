@@ -4,7 +4,9 @@
 
 > Bundle Deno scripts into a single script
 
-Note: This module is a thin wrapper of [esbuild](https://github.com/evanw/esbuild) and [esbuild-deno-loader](https://jsr.io/@luca/esbuild-deno-loader).
+Note: This module is a thin wrapper of
+[esbuild](https://github.com/evanw/esbuild) and
+[esbuild-deno-loader](https://jsr.io/@luca/esbuild-deno-loader).
 
 ## Usage
 
