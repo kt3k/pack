@@ -11,7 +11,7 @@ async function main() {
   });
 
   if (options.v) {
-    console.log("@kt3k/pack@0.1.8");
+    console.log("@kt3k/pack@0.1.9");
     Deno.exit();
   }
 
