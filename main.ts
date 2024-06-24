@@ -2,6 +2,7 @@ import * as esbuild from "esbuild";
 import { parseArgs } from "@std/cli/parse-args";
 import { denoPlugins } from "@luca/esbuild-deno-loader";
 import * as colors from "@std/fmt/colors";
+import { join } from "@std/path/join";
 
 async function main() {
   const options = parseArgs(Deno.args, {
@@ -33,8 +34,12 @@ async function main() {
     `Bundling the file(s).\ninput: ${inputFiles}\noutput: ${outputFile}`,
   );
 
-  const _result = await esbuild.build({
-    plugins: [...denoPlugins()],
+  const denoPluginOpts = {
+    configPath: await getDenoJsonPath(),
+  };
+
+  await esbuild.build({
+    plugins: [...denoPlugins(denoPluginOpts)],
     entryPoints: options._.map(String),
     outfile: options.o,
     bundle: true,
@@ -54,6 +59,22 @@ Options:
   -v             Show version number and exit.
   -o <filename>  Specify the output file name.
                  If not specified, the bundle is output to stdout.`;
+}
+
+async function getDenoJsonPath() {
+  try {
+    await Deno.stat("deno.json");
+    return join(Deno.cwd(), "deno.json");
+  } catch {
+    // pass
+  }
+
+  try {
+    await Deno.stat("deno.jsonc");
+    return join(Deno.cwd(), "deno.jsonc");
+  } catch {
+    // pass
+  }
 }
 
 await main();
