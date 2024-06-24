@@ -20,5 +20,8 @@
   },
   "exclude": [
     "example-out.js"
-  ]
+  ],
+  "fmt": {
+    "semiColons": false
+  }
 }
