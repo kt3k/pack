@@ -11,7 +11,7 @@ async function main() {
   })
 
   if (options.v) {
-    console.log("@kt3k/pack@0.1.9")
+    console.log("@kt3k/pack@0.1.10")
     Deno.exit()
   }
 
