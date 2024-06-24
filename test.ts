@@ -42,6 +42,19 @@ output: STDOUT
   await assertSnapshot(t, await stdout)
 })
 
+Deno.test("cmd example-im.ts (deno.json detection)", async (t) => {
+  const { stdout, stderr } = await cmd("example-im.ts")
+  const strippedStderr = stripAnsiCode(stderr)
+  assertEquals(
+    strippedStderr,
+    `Bundling the file(s).
+input: example-im.ts
+output: STDOUT
+`,
+  )
+  await assertSnapshot(t, await stdout)
+})
+
 async function deno(...args: string[]) {
   const cmd = new Deno.Command("deno", { args })
   const output = await cmd.output()
