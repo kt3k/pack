@@ -1,6 +1,7 @@
 import { assertEquals, assertStringIncludes } from "@std/assert"
 import { stripAnsiCode } from "@std/fmt/colors"
 import { assertSnapshot } from "@std/testing/snapshot"
+import "@std/encoding";
 
 const td = new TextDecoder()
 
