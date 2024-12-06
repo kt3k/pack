@@ -1,4 +1,4 @@
-import { assertEquals, assertStringIncludes } from "@std/assert"
+import { assert, assertEquals, assertStringIncludes } from "@std/assert"
 import { stripAnsiCode } from "@std/fmt/colors"
 import { assertSnapshot } from "@std/testing/snapshot"
 import "@std/encoding"
@@ -54,6 +54,17 @@ output: STDOUT
 `,
   )
   await assertSnapshot(t, await stdout)
+})
+
+Deno.test("cmd example-vscode.ts (deno.json detection)", async (t) => {
+  const { stdout, stderr } = await cmd(
+    "example-vscode.ts",
+    "--external",
+    "vscode",
+    "--format",
+    "cjs",
+  )
+  assertStringIncludes(stdout, 'require("vscode")')
 })
 
 async function deno(...args: string[]) {

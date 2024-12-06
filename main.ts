@@ -6,8 +6,9 @@ import { join } from "@std/path/join"
 
 async function main() {
   const options = parseArgs(Deno.args, {
-    string: ["o"],
+    string: ["o", "external", "format"],
     boolean: ["v", "h"],
+    collect: ["external"],
   })
 
   if (options.v) {
@@ -16,6 +17,7 @@ async function main() {
   }
 
   if (options.h) {
+    console.log(options)
     console.log(helpMessage())
     Deno.exit()
   }
@@ -43,22 +45,28 @@ async function main() {
     entryPoints: options._.map(String),
     outfile: options.o,
     bundle: true,
-    format: "esm",
+    external: options.external,
+    format: options.format === "cjs" ? "cjs" : "esm",
   })
 }
 
 function usage() {
-  return "Usage: deno run -A jsr:@kt3k/pack [-h|-v] [-o <filename>] <input-file>"
+  return "Usage: deno run -A jsr:@kt3k/pack [-h|-v] [-o <filename>] [--external <module>] [--format cjs|esm] <input-file>"
 }
 
 function helpMessage() {
   return `${usage()}
 
 Options:
-  -h             Show help message and exit.
-  -v             Show version number and exit.
-  -o <filename>  Specify the output file name.
-                 If not specified, the bundle is output to stdout.`
+  -h                   Show help message and exit.
+  -v                   Show version number and exit.
+  -o <filename>        Specify the output file name.
+                       If not specified, the bundle is output to stdout.
+  --external <module>  Specify the external modules. The external modules are not bundled,
+                       but are left as import statements in the output.
+                       You can specify multiple --external options like
+                       \`--external foo --external bar\`.
+  --fromat esm|cjs     Specify the output format. Default is esm.`
 }
 
 async function getDenoJsonPath() {
