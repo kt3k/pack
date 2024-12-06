@@ -51,7 +51,7 @@ async function main() {
 }
 
 function usage() {
-  return "Usage: deno run -A jsr:@kt3k/pack [-h|-v] [-o <filename>] [--external <module>] [--format cjs|esm] <input-file>"
+  return "Usage: deno -A jsr:@kt3k/pack [-h|-v] [-o <filename>] [--external <module>] [--format cjs|esm] <input-file>"
 }
 
 function helpMessage() {

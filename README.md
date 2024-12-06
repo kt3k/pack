@@ -11,7 +11,7 @@ Note: This module is a thin wrapper of
 ## Usage
 
 ```
-deno run -A jsr:@kt3k/pack [-h|-v] [-o <filename>] <input-file>
+deno -A jsr:@kt3k/pack [-h|-v] [-o <filename>] [--external <module>] [--format cjs|esm] <input-file>
 ```
 
 ### Options
@@ -20,6 +20,10 @@ deno run -A jsr:@kt3k/pack [-h|-v] [-o <filename>] <input-file>
 - `-v` Show version number and exit.
 - `-o <filename>` Specify the output file name. If not specified, the bundle is
   output to stdout.
+- `--external <module>` Specify the external modules. The external modules are
+  not bundled, but are left as import statements in the output. You can specify
+  multiple --external options like `--external foo --external bar`.
+- `--fromat esm|cjs` Specify the output format. Default is esm.
 
 ## License
 
