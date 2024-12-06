@@ -1,4 +1,4 @@
-# @kt3k/pack v0.1.11
+# @kt3k/pack v0.1.12
 
 [![ci](https://github.com/kt3k/pack/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/pack/actions/workflows/ci.yml)
 
